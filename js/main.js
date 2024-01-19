@@ -30,7 +30,7 @@ let seconds = 0,
     minutes = 0;
 
 let movesCount = 0,
-    winCounter = 0;
+    winCount = 0;
 
 const timeGenerator = () => {
     seconds++;
@@ -44,9 +44,55 @@ const timeGenerator = () => {
 let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
 let minutesValues = minutes < 10 ? `0${minutes}` : minutes;
 
-timeValue.innerHTML = `<span>Time:</span?> ${minutesValues}:${secondsValue}`;
+timeValue.innerHTML = `<span>Time:</span> ${minutesValues}:${secondsValue}`;
 
 const movesCounter = () => {
     // movesCount++;
     moves.innerHTML = `<span>Moves:</span> ${++movesCount}`
 }
+
+const generateRadom = (size = 4) => {
+    let tempArr = [...items];
+    let cardValues = []
+
+    size = size * size / 2;
+    for (let i = 0; i < size; i++) {
+        let randomIndex = Math.floor(Math.random() * tempArr.length);
+        cardValues.push(tempArr[randomIndex]);
+        tempArr.splice(randomIndex, 1);
+    }
+    return cardValues;
+}
+
+const matrixGenerator = (cardValues, size = 4) => {
+    gameContainer.innerHTML = ``;
+    cardValues = [...cardValues, ...cardValues];
+    cardValues.sort(() => Math.random() - 0.5);
+    for (let i = 0; i < size * size; i++) {
+        gameContainer.innerHTML += `
+        <div class="card-container" data-card-value="${cardValues[i].name}">
+            <div class="card-before">?</div>
+            <div class="card=after">
+                <img src="${cardValues[i].img}" alt="${cardValues[i].name}">
+            </div>
+        </div>
+        `;
+    }
+    gameContainer.style.gridTemplateColumns = `repeat(${size}, auto)`;
+}
+
+const initializer = () => {
+    result.innerText = '';
+    winCount = 0;
+    let cardValues = generateRadom();
+    console.log(cardValues);
+    matrixGenerator(cardValues);
+
+}
+
+
+initializer();
+
+
+
+
