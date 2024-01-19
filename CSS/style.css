@@ -35,4 +35,5 @@ body {
 .game-container {
     width: 100%;
     display:grid;
+    gap: 0.6em;
 }
