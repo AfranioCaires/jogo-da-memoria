@@ -94,7 +94,7 @@ export class MemoryGameUI extends MemoryGameLogic {
                   <div class="victory">
                     <h2>Você Venceu</h2>
                     <h4>Movimentos: ${this.movesCount}</h4>
-                    <h4>Tempo: ${this.timeValue.innerText}</h4>
+                    <h4>${this.timeValue.innerText}</h4>
                   </div>
                 `;
                 this.stopGame();
