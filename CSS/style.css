@@ -133,11 +133,11 @@ button {
   display: none;
 }
 
-#result {
+#result div {
   background-color: var(--bg-color);
   border-radius: 0.6em;
   padding: 2.5em 3em;
-  position: absolute;
+  margin: 1em;
 }
 
 #result {
