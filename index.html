@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da memória</title>
     <link rel="stylesheet" href="CSS/style.css">
-    <script type="module" src="js/main.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 </head>
 <body>
-    <main>
         <div class="wrapper">
             <div class="stats-container">
-                <div id="moves-counter"></div>
-                <div id="timer"></div>
+              <div id="moves-count"></div>
+              <div id="time"></div>
             </div>
             <div class="game-container"></div>
-            <button id="stop-game" class="button hidden">Parar jogo</button>
-        </div>
-        <div class="controls-container">
+            <button id="stop" class="hide">Parar jogo</button>
+          </div>
+          <div class="controls-container">
             <p id="result"></p>
-            <button id="start-game" class="button">Iniciar jogo</buttons>
-        </div>
-    </main>
+            <button id="start">Iniciar jogo</button>
+          </div>
 </body>
+<script src="js/main.js"></script>
+
 </html>
