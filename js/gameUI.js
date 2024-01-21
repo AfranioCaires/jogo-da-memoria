@@ -20,6 +20,24 @@ export class MemoryGameUI extends MemoryGameLogic {
     this.minutes = 0; // Contador de minutos
   }
 
+  // Funcção para determinar a dificuldade do jogo;
+  setDifficulty() {
+    const difficulty = document.getElementById("difficulty").value;
+    switch (difficulty) {
+      case "easy":
+        this.cardVisibleTime = 2000; // 2s
+        break;
+      case "medium":
+        this.cardVisibleTime = 1000; // 1s
+        break;
+      case "hard":
+        this.cardVisibleTime = 500; // 0.5s
+        break;
+      default:
+        this.cardVisibleTime = 1000; // 1s (padrão)
+    }
+  }
+
   // Função para gerar o tempo do jogo
   timeGenerator() {
     this.seconds += 1;
@@ -91,7 +109,7 @@ export class MemoryGameUI extends MemoryGameLogic {
               let delay = setTimeout(() => {
                 this.tempFirst.classList.remove("flipped");
                 this.tempSecond.classList.remove("flipped");
-              }, 900);
+              }, this.cardVisibleTime);
             }
           }
         }
@@ -104,6 +122,7 @@ export class MemoryGameUI extends MemoryGameLogic {
     this.movesCount = 0;
     this.seconds = 0;
     this.minutes = 0;
+    this.setDifficulty();
     this.controls.classList.add("hide");
     this.stopButton.classList.remove("hide");
     this.startButton.classList.add("hide");
@@ -125,7 +144,6 @@ export class MemoryGameUI extends MemoryGameLogic {
     this.result.innerText = "";
     this.winCount = 0;
     let cardValues = this.generateRandom();
-    console.log(cardValues);
     this.matrixGenerator(cardValues);
   }
 }
