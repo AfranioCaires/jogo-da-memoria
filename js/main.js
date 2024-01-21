@@ -124,6 +124,7 @@ class MemoryGameUI extends MemoryGameLogic {
               this.updateWinCount();
               if (this.isGameWon(cardValues)) {
                 this.result.innerHTML = `
+                  <div class="victory">
                     <h2>Você Venceu</h2>
                     <h4>Movimentos: ${this.movesCount}</h4>
                     <h4>Tempo: ${this.timeValue.innerText}</h4>
